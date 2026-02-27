@@ -1,0 +1,85 @@
+---
+import { Image } from "astro:assets";
+import res1 from "../assets/resultados/resultado1.png";
+import res2 from "../assets/resultados/resultado2.png";
+import res3 from "../assets/resultados/resultado3.png";
+import res4 from "../assets/resultados/resultado4.png";
+import res5 from "../assets/resultados/resultado5.png";
+import res6 from "../assets/resultados/resultado6.png";
+
+const transformaciones = [
+  { img: res1, alt: "Transformación Física 1" },
+  { img: res2, alt: "Transformación Física 2" },
+  { img: res3, alt: "Transformación Física 3" },
+  { img: res4, alt: "Transformación Física 4" },
+  { img: res5, alt: "Transformación Física 5" },
+  { img: res6, alt: "Transformación Física 6" },
+];
+---
+
+<section id="resultados" class="w-full bg-[#1D1A1A] py-24 px-6 lg:px-8 border-t border-zinc-800/50 overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-black text-white uppercase tracking-wider" style="font-family: 'Orbitron', sans-serif;">Resultados</h2>
+    </div>
+    <div class="swiper resultados-swiper w-full cursor-grab active:cursor-grabbing pb-12">
+      <div class="swiper-wrapper">
+        {
+          transformaciones.map((item) => (
+            <div class="swiper-slide">
+              <article class="relative group overflow-hidden rounded-sm bg-[#242121]">
+                <Image src={item.img} alt={item.alt} class="w-full h-[500px] object-cover object-center transition-transform duration-500 group-hover:scale-105" width={600} height={800} />
+                <div class="absolute bottom-4 left-4 bg-[#1D1A1A]/90 border border-[#EFD915] px-3 py-1 text-xs font-bold text-[#EFD915] uppercase tracking-wider">Verificado</div>
+              </article>
+            </div>
+          ))
+        }
+      </div>
+      <div class="swiper-pagination bottom-0"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  :global(.swiper-pagination-bullet) {
+    background-color: #52525b !important;
+    opacity: 1 !important;
+  }
+  :global(.swiper-pagination-bullet-active) {
+    background-color: #efd915 !important;
+  }
+</style>
+
+<script>
+  import Swiper from "swiper";
+  import { Autoplay, Pagination } from "swiper/modules";
+  import "swiper/css";
+  import "swiper/css/pagination";
+
+  new Swiper(".resultados-swiper", {
+    modules: [Autoplay, Pagination],
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 24,
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 32,
+      },
+    },
+  });
+</script>

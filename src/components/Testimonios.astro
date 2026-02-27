@@ -1,0 +1,135 @@
+---
+// src/components/Testimonios.astro
+import { Image } from "astro:assets";
+import star from "../assets/svg/star.svg";
+import chevronLeft from "../assets/svg/chevron-left.svg";
+import chevronRight from "../assets/svg/chevron-right.svg";
+
+// Ajusta las extensiones (.png, .jpg, etc.) según tus archivos reales
+import test1 from "../assets/testimonios/testimonio1.png";
+import test2 from "../assets/testimonios/testimonio2.png";
+import test3 from "../assets/testimonios/testimonio3.png";
+import test4 from "../assets/testimonios/testimonio4.png";
+import test5 from "../assets/testimonios/testimonio5.png";
+
+const testimonios = [
+  {
+    nombre: "Ana R.",
+    rol: "Alumna Online",
+    texto: "La sobrecarga progresiva cambió mi físico por completo. Entrenar con un propósito y registrar mis pesos me dio la motivación que me faltaba.",
+    img: test1,
+  },
+  {
+    nombre: "Carlos M.",
+    rol: "Alumno Presencial",
+    texto: "Intenté de todo y siempre rebotaba. Con este método gané fuerza y aprendí a comer sin sentirme castigado. Los resultados hablan solos.",
+    img: test2,
+  },
+  {
+    nombre: "Sofía V.",
+    rol: "Alumna Online",
+    texto: "Adiós a la dieta de pollo hervido. Entender mis macros y tener una rutina inteligente me permitió bajar mi porcentaje de grasa mientras disfrutaba el proceso.",
+    img: test3,
+  },
+  {
+    nombre: "Luis T.",
+    rol: "Alumno Presencial",
+    texto: "El acompañamiento es top. No te venden rutinas genéricas, te exigen y te miden. En 3 meses logré más que en 2 años entrenando por mi cuenta.",
+    img: test4,
+  },
+
+  {
+    nombre: "Diego P.",
+    rol: "Alumno Presencial",
+    texto: "Una metodología brutal. Vas al gimnasio a trabajar, no a perder el tiempo. El nivel de detalle en la técnica y la exigencia me llevaron a mi mejor versión.",
+    img: test5,
+  },
+];
+---
+
+<section id="testimonios" class="w-full bg-[#1D1A1A] py-24 px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="text-[#EFD915] font-bold tracking-widest uppercase text-sm mb-2 block">Resultados Comprobados</span>
+      <h2 class="text-4xl md:text-5xl font-black text-white uppercase tracking-wider" style="font-family: 'Orbitron', sans-serif;">Lo que dicen nuestros alumnos</h2>
+    </div>
+
+    <div class="swiper testimonios-swiper w-full cursor-grab active:cursor-grabbing">
+      <div class="swiper-wrapper">
+        {
+          testimonios.map((item) => (
+            <div class="swiper-slide h-auto">
+              <article class="bg-[#242121] p-8 rounded-sm h-full flex flex-col justify-between border border-zinc-800/50">
+                <div>
+                  <div class="flex gap-1 mb-6 text-[#EFD915]">
+                    {[...Array(5)].map(() => (
+                      <img src={star.src} alt="Star" class="w-5 h-5" />
+                    ))}
+                  </div>
+                  <p class="text-zinc-300 leading-relaxed mb-8 text-sm md:text-base">"{item.texto}"</p>
+                </div>
+
+                <div class="flex items-center gap-4">
+                  <Image src={item.img} alt={`Foto de ${item.nombre}`} class="w-12 h-12 rounded-full object-cover border border-[#EFD915]" width={48} height={48} />
+                  <div>
+                    <h4 class="text-white font-bold" style="font-family: 'Inter', sans-serif;">
+                      {item.nombre}
+                    </h4>
+                    <p class="text-zinc-500 text-xs uppercase tracking-wide">{item.rol}</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="flex items-center justify-center gap-6 mt-12">
+        <button class="test-prev w-10 h-10 flex items-center justify-center rounded-full border border-zinc-700 text-[#EFD915] hover:bg-[#EFD915] hover:text-black transition-all z-10">
+          <img src={chevronLeft.src} alt="Arrow Left" class="w-5 h-5" />
+        </button>
+        <div class="test-pagination w-auto flex justify-center items-center"></div>
+        <button class="test-next w-10 h-10 flex items-center justify-center rounded-full border border-zinc-700 text-[#EFD915] hover:bg-[#EFD915] hover:text-black transition-all z-10">
+          <img src={chevronRight.src} alt="Arrow Right" class="w-5 h-5" />
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  :global(.test-pagination .swiper-pagination-bullet) {
+    background-color: #52525b !important;
+    opacity: 1 !important;
+    margin: 0 4px !important;
+  }
+  :global(.test-pagination .swiper-pagination-bullet-active) {
+    background-color: #efd915 !important;
+  }
+</style>
+
+<script>
+  import Swiper from "swiper";
+  import { Navigation, Pagination } from "swiper/modules";
+  import "swiper/css";
+  import "swiper/css/navigation";
+  import "swiper/css/pagination";
+
+  new Swiper(".testimonios-swiper", {
+    modules: [Navigation, Pagination],
+    loop: true,
+    navigation: {
+      nextEl: ".test-next",
+      prevEl: ".test-prev",
+    },
+    pagination: {
+      el: ".test-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      320: { slidesPerView: 1, spaceBetween: 20 },
+      768: { slidesPerView: 2, spaceBetween: 24 },
+      1024: { slidesPerView: 3, spaceBetween: 32 },
+    },
+  });
+</script>

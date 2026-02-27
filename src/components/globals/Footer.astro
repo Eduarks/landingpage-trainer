@@ -1,0 +1,60 @@
+---
+import logoLimaFit from "../../assets/limafit.svg";
+import creditCard from "../../assets/svg/credit-card.svg";
+import cash from "../../assets/svg/cash.svg";
+import bank from "../../assets/svg/building-bank.svg";
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="w-full bg-[#1a1717] pt-16 pb-8 px-6 lg:px-8 border-t border-zinc-800/50 mt-12">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+      <div class="flex flex-col gap-6 md:pr-8">
+        <a href="#" class="flex items-center gap-2">
+          <img src={logoLimaFit.src} alt="Lima Fit Method" class="w-7 h-7 text-[#EFD915]" />
+          <span class="font-['Orbitron'] font-bold text-white text-xl tracking-widest uppercase">Lima Fit <span class="text-[#EFD915]">Method</span></span>
+        </a>
+        <p class="text-[#7e879c] text-sm md:text-base leading-relaxed">Metodología de alto rendimiento para quienes buscan su mejor versión física sin sacrificar su estilo de vida.</p>
+      </div>
+
+      <div>
+        <h4 class="text-[#EFD915] font-bold uppercase tracking-widest text-sm mb-6" style="font-family: 'Orbitron', sans-serif;">Horario de Atención</h4>
+        <div class="flex flex-col gap-4 text-sm md:text-base">
+          <div class="flex justify-between items-start">
+            <span class="text-[#7e879c]">Lunes - Sábado</span>
+            <div class="text-right text-white font-bold tracking-wider">
+              <p>7AM - 1PM</p>
+              <p class="mt-1.5">3PM - 10PM</p>
+            </div>
+          </div>
+          <div class="flex justify-between items-center mt-2">
+            <span class="text-[#7e879c]">Domingo</span>
+            <span class="text-[#515769] font-medium">Cerrado</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="md:pl-8">
+        <h4 class="text-[#EFD915] font-bold uppercase tracking-widest text-sm mb-6" style="font-family: 'Orbitron', sans-serif;">Métodos de Pago</h4>
+
+        <div class="flex items-center gap-5 mb-6 text-[#7e879c]">
+          <img src={creditCard.src} alt="Credit Card" class="w-8 h-8" />
+          <img src={cash.src} alt="Cash" class="w-8 h-8" />
+          <img src={bank.src} alt="Bank" class="w-8 h-8" />
+        </div>
+
+        <p class="text-[#515769] text-xs md:text-sm">Yape, Plin, Transferencias BCP/Interbank</p>
+      </div>
+    </div>
+
+    <div class="mt-16 pt-8 border-t border-zinc-800/50 flex flex-col-reverse md:flex-row items-center justify-between gap-6">
+      <p class="text-[#515769] text-xs font-bold tracking-widest uppercase">
+        &copy; {currentYear} Lima Fit Method. All rights reserved.
+      </p>
+      <div class="flex gap-8 text-[#515769] text-xs font-bold tracking-widest uppercase">
+        <a href="#" class="hover:text-[#EFD915] transition-colors">Privacidad</a>
+        <a href="#" class="hover:text-[#EFD915] transition-colors">Términos</a>
+      </div>
+    </div>
+  </div>
+</footer>

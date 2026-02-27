@@ -1,16 +1,25 @@
 ---
 import "../styles/global.css";
+import Navbar from "../components/globals/Navbar.astro";
+import Footer from "../components/globals/Footer.astro";
+const { title } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <meta name="description" content="Entrenamiendo de alto rendimiento con el Lima Fit Method" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Trainer Landing Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
+    <title>{title}</title>
   </head>
-  <body class="bg-zinc-50 text-zinc-900 antialiased">
+  <body class="bg-[#1D1A1A] text-zinc-300 font-['Inter'] antialiased selection:bg-[#EFD915] selection:text-black">
+    <Navbar />
     <slot />
+    <Footer />
   </body>
 </html>

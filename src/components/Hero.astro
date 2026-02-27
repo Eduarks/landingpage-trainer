@@ -1,26 +1,33 @@
-<section class="relative w-full min-h-[80vh] flex items-center bg-zinc-900 overflow-hidden">
-  <picture class="absolute inset-0 z-0 opacity-40">
-    <source media="(min-width: 768px)" srcset="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=1920&auto=format&fit=crop" />
-    <img
-      src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=800&auto=format&fit=crop"
-      alt="Entrenador personal en el gimnasio"
-      class="w-full h-full object-cover"
-      fetchpriority="high"
-      decoding="async"
-    />
-  </picture>
+---
+import { Image } from "astro:assets";
+import heroBg from "../assets/img/hero-bg.png";
+---
 
-  <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8">
-    <div class="max-w-2xl">
-      <span class="block text-blue-500 font-bold tracking-wide uppercase text-sm mb-3">Cobertura en Lima Metropolitana</span>
-      <h1 class="text-4xl md:text-6xl font-black text-white leading-tight mb-6">
-        Transforma tu físico sin dietas <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">extremas</span>
+<section id="inicio" class="relative w-full min-h-[90vh] flex items-center bg-[#1D1A1A] overflow-hidden">
+  <div class="absolute inset-0 z-0 bg-black">
+    <Image src={heroBg} alt="Gimnasio Lima Fit Method" class="w-full h-full object-cover opacity-40" fetchpriority="high" loading="eager" />
+  </div>
+
+  <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 pt-20 flex justify-center items-center min-h-[80vh]">
+    <div class="max-w-3xl">
+      <span class="inline-block bg-[#EFD915] text-[#1D1A1A] font-bold tracking-wide uppercase text-xs md:text-sm px-4 py-1.5 mt-12 mb-2 rounded-sm">Cobertura en Lima Metropolitana</span>
+
+      <h1 class="italic text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[1.1] mb-6 uppercase" style="font-family: 'Orbitron', sans-serif;">
+        Transforma tu físico
+        <span class="text-[#EFD915]">sin dietas</span> extremas
       </h1>
-      <p class="text-lg md:text-xl text-zinc-300 mb-8 max-w-lg leading-relaxed">
-        Sobrecarga progresiva y alimentación flexible para ganar músculo y perder grasa, adaptado a tu estilo de vida.
+
+      <p class="text-lg md:text-xl text-zinc-300 mb-5 max-w-2xl leading-relaxed">
+        Entrenamiento de alto rendimiento con el Lima Fit Method. Resultados sostenibles basados en ciencia, no en restricciones absurdas.
       </p>
-      <div class="flex flex-col sm:flex-row gap-4">
-        <a href="#planes" class="inline-flex justify-center items-center px-8 py-4 text-base font-bold text-zinc-900 bg-white rounded-lg hover:bg-zinc-200 transition-colors">Ver Planes</a>
+
+      <div class="flex flex-col sm:flex-row gap-2 mb-10">
+        <a
+          href="#planes"
+          class="inline-flex justify-center items-center px-10 py-4 text-base font-bold text-[#1D1A1A] bg-[#EFD915] hover:bg-yellow-400 transition-colors uppercase tracking-widest rounded-sm"
+        >
+          Ver Planes
+        </a>
       </div>
     </div>
   </div>

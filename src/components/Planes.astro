@@ -1,0 +1,98 @@
+---
+import PlanCard from "./ui/PlanCard.astro";
+const planes = [
+  {
+    nombre: "Básico",
+    precio: "S/ 79.90",
+    beneficios: [
+      { texto: "Rutina personalizada", incluido: true },
+      { texto: "Guía nutricional base", incluido: true },
+      { texto: "Soporte 24/7", incluido: false },
+      { texto: "Check-ins semanales", incluido: false },
+    ],
+    esRecomendado: false,
+    mensajeWa: "Hola, quiero empezar con el Plan Básico de S/ 79.90.",
+  },
+  {
+    nombre: "Plan Pro",
+    precio: "S/ 129.90",
+    beneficios: [
+      { texto: "Rutina Avanzada Progresiva", incluido: true },
+      { texto: "Plan Nutricional Flexible", incluido: true },
+      { texto: "Soporte WhatsApp Directo", incluido: true },
+      { texto: "Ajustes Semanales", incluido: true },
+      { texto: "Acceso a Comunidad VIP", incluido: true },
+    ],
+    esRecomendado: true,
+    textoBoton: "Empezar Ahora",
+    mensajeWa: "¡Hola! Quiero el Plan PRO de S/ 129.90.",
+  },
+  {
+    nombre: "Intermedio",
+    precio: "S/ 99.90",
+    beneficios: [
+      { texto: "Rutina personalizada", incluido: true },
+      { texto: "Plan Nutricional", incluido: true },
+      { texto: "Check-in quincenal", incluido: true },
+      { texto: "Soporte prioritario", incluido: false },
+    ],
+    esRecomendado: false,
+    mensajeWa: "Hola, me interesa el Plan Intermedio de S/ 99.90.",
+  },
+];
+---
+
+<section id="planes" class="w-full bg-[#1a1717] py-24 px-6 lg:px-8 border-t border-zinc-800/50">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-8 flex flex-col items-center">
+      <h2 class="text-4xl md:text-5xl font-black text-white uppercase tracking-wider mb-4" style="font-family: 'Orbitron', sans-serif;">Elige tu Plan</h2>
+      <span class="text-zinc-400 font-semibold tracking-[0.2em] uppercase text-xs md:text-sm block">Escalabilidad Industrial Para Tus Metas</span>
+    </div>
+
+    <div class="swiper planes-swiper w-full cursor-grab active:cursor-grabbing pt-6 pb-8 lg:pb-0">
+      <div class="swiper-pagination plan-pagination !top-0 !bottom-auto lg:hidden"></div>
+      <div class="swiper-wrapper items-stretch mt-6">
+        {
+          planes.map((plan) => (
+            <div class="swiper-slide h-auto">
+              <PlanCard {...plan} />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  :global(.plan-pagination .swiper-pagination-bullet) {
+    background-color: #52525b !important;
+    opacity: 1 !important;
+    margin: 0 4px !important;
+  }
+  :global(.plan-pagination .swiper-pagination-bullet-active) {
+    background-color: #efd915 !important;
+  }
+</style>
+
+<script>
+  import Swiper from "swiper";
+  import { Pagination } from "swiper/modules";
+  import "swiper/css";
+  import "swiper/css/pagination";
+
+  new Swiper(".planes-swiper", {
+    modules: [Pagination],
+    initialSlide: 1,
+    grabCursor: true,
+    pagination: {
+      el: ".plan-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      320: { slidesPerView: 1, spaceBetween: 20 },
+      768: { slidesPerView: 2, spaceBetween: 24 },
+      1024: { slidesPerView: 3, spaceBetween: 32 },
+    },
+  });
+</script>

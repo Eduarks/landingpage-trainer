@@ -1,0 +1,31 @@
+---
+import trendingUp from "../assets/svg/trending-up.svg";
+import toolskitchen from "../assets/svg/tools-kitchen-2.svg";
+---
+
+<section id="metodologia" class="w-full bg-[#1D1A1A] py-24 px-6 lg:px-8 border-t border-zinc-800/50">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+      <h2 class="text-4xl md:text-5xl font-black text-white uppercase tracking-wider italic" style="font-family: 'Orbitron', sans-serif;">Nuestro Método</h2>
+      <p class="text-zinc-400 max-w-md text-sm md:text-base leading-relaxed">Eliminamos las conjeturas. Un sistema diseñado para hombres y mujeres que buscan rendimiento real.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+      <article class="bg-[#242121] p-8 md:p-10 rounded-sm border-l-2 border-[#EFD915] hover:bg-[#2a2727] transition-colors duration-300">
+        <div class="text-[#EFD915] mb-6">
+          <img src={trendingUp.src} alt="Sobrecarga Progresiva" class="w-8 h-8 md:w-10 md:h-10" />
+        </div>
+        <h3 class="text-xl md:text-2xl font-bold text-white uppercase mb-4 tracking-wide italic" style="font-family: 'Orbitron', sans-serif;">Sobrecarga Progresiva</h3>
+        <p class="text-zinc-400 leading-relaxed text-sm md:text-base">Entrenamiento estructurado para ganar fuerza y masa muscular de forma constante. Registramos cada levantamiento para asegurar tu progreso semana a semana.</p>
+      </article>
+
+      <article class="bg-[#242121] p-8 md:p-10 rounded-sm border-l-2 border-[#EFD915] hover:bg-[#2a2727] transition-colors duration-300">
+        <div class="text-[#EFD915] mb-6">
+          <img src={toolskitchen.src} alt="Alimentación Flexible" class="w-8 h-8 md:w-10 md:h-10" />
+        </div>
+        <h3 class="text-xl md:text-2xl font-bold text-white uppercase mb-4 tracking-wide italic" style="font-family: 'Orbitron', sans-serif;">Alimentación Flexible</h3>
+        <p class="text-zinc-400 leading-relaxed text-sm md:text-base">Aprende a comer lo que te gusta mientras cumples tus objetivos nutricionales. Sin alimentos prohibidos, solo gestión inteligente de macronutrientes.</p>
+      </article>
+    </div>
+  </div>
+</section>

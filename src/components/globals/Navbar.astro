@@ -1,0 +1,22 @@
+---
+import logoLimaFit from "../../assets/limafit.svg";
+---
+
+<header class="fixed top-0 w-full z-50 bg-[#1D1A1A]/95 backdrop-blur-sm border-b border-zinc-800">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
+    <a href="#inicio" class="flex items-center gap-2">
+      <img src={logoLimaFit.src} alt="" class="h-5 w-auto" />
+      <span class="font-['Orbitron'] font-bold text-white text-xl tracking-wider uppercase">Lima Fit <span class="text-[#EFD915]">Method</span></span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="#metodologia" class="text-sm font-semibold text-zinc-300 hover:text-[#EFD915] transition-colors uppercase tracking-wide">Metodología</a>
+      <a href="#resultados" class="text-sm font-semibold text-zinc-300 hover:text-[#EFD915] transition-colors uppercase tracking-wide">Resultados</a>
+      <a href="#planes" class="text-sm font-semibold text-zinc-300 hover:text-[#EFD915] transition-colors uppercase tracking-wide">Planes</a>
+    </nav>
+
+    <div class="hidden md:block">
+      <a href="#planes" class="bg-[#EFD915] text-[#1D1A1A] px-6 py-2.5 rounded-sm font-bold uppercase text-sm hover:bg-yellow-400 transition-colors">Empezar Ahora</a>
+    </div>
+  </div>
+</header>
